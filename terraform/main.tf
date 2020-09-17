@@ -1,5 +1,6 @@
 
 provider "google-beta" {
+  version = "~> 2.8"
 }
 
 terraform {
