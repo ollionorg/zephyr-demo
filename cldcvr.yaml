@@ -1,0 +1,36 @@
+environments:
+  - name: Dev
+    provisioner: gcp
+    iacPolicy: "CC default latest"
+    iacRoot: "terraform"
+
+pipelines:
+  zephyr-demo-deploy:
+    - pipeline-config@1
+    - git-clone@1
+    - npm-build@1
+    - bash@1
+
+applications:
+  zpdemo:
+    displayName: "Zephyr Demp"
+    srcRoot: "."
+    pipeline: zephyr-demo-deploy
+
+deployments:
+  dev:
+    endpoints:
+      - zpdemo
+    environment:
+      name: Dev
+      inputs:
+        project_id: vanguard-test-deploy
+    applications:
+      zpdemo:
+        pipelineInputs:
+          git_remote_path: github.com/cldcvr/zephyr-demo
+          pipeline_env: '{"URL":"${terraform.bucket.value.url}","ID":"${terraform.bucket.value.id}"}'
+          bash_script: "gsutil cp -R dist/* $$URL"
+    output:
+      app-endpoint:
+        command: echo http://storage.cloud.google.com/$$ID/output.html
