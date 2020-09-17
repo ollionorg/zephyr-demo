@@ -40,6 +40,6 @@ resource "google_storage_bucket" "website_bucket" {
 resource "google_storage_bucket_acl" "website_bucket_acl" {
   provider    = google-beta
   bucket      = google_storage_bucket.website_bucket.name
-  role_entity = ["READER:allUsers", "OWNER:allAuthenticatedUsers"]
+  role_entity = ["READER:allUsers", "OWNER:allAuthenticatedUsers", "OWNER:vanguard-bot@vanguard-20200519.iam.gserviceaccount.com"]
 }
 
