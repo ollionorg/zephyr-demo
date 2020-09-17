@@ -1,9 +1,7 @@
 provider "google" {
+  project = var.project_id
 }
 
-provider "google-beta" {
-  version = "~> 2.8"
-}
 
 terraform {
   required_version = ">= 0.12"
@@ -22,8 +20,6 @@ variable project_id {
 }
 
 resource "google_storage_bucket" "website_bucket" {
-  provider      = google-beta
-  project       = var.project_id
   name          = "zephyr-demo-${random_string.random.result}"
   force_destroy = true
 
