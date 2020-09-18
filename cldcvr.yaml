@@ -23,8 +23,6 @@ deployments:
       - zpdemo
     environment:
       name: Dev
-      inputs:
-        project_id: vanguard-test-deploy
     applications:
       zpdemo:
         pipelineInputs:
