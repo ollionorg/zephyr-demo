@@ -1,5 +1,5 @@
 provider "google" {
-  project = var.project_id
+  project = var.GOOGLE_PROJECT
 }
 
 
@@ -15,9 +15,7 @@ resource "random_string" "random" {
   min_lower = 8
 }
 
-variable project_id {
-  default = "vanguard-test-deploy"
-}
+variable GOOGLE_PROJECT {}
 
 resource "google_storage_bucket" "website_bucket" {
   name          = "zephyr-demo-${random_string.random.result}"
