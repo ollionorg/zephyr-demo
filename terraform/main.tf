@@ -15,7 +15,9 @@ resource "random_string" "random" {
   min_lower = 8
 }
 
-variable GOOGLE_PROJECT {}
+variable "GOOGLE_PROJECT" {
+    default = null
+}
 
 resource "google_storage_bucket" "website_bucket" {
   name          = "zephyr-demo-${random_string.random.result}"
