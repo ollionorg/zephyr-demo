@@ -31,4 +31,4 @@ deployments:
           bash_script: "gsutil cp -R dist/* gs://$$ID"
     output:
       app-endpoint:
-        command: echo http://storage.cloud.google.com/$$ID/output.html
+        command: echo https://storage.googleapis.com/$$ID/output.html
