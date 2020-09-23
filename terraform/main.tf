@@ -16,7 +16,7 @@ resource "random_string" "random" {
 }
 
 variable "GOOGLE_PROJECT" {
-    default = null
+  default = null
 }
 
 resource "google_storage_bucket" "website_bucket" {
@@ -43,3 +43,14 @@ resource "google_storage_bucket_acl" "website_bucket_acl" {
   role_entity = ["READER:allUsers", "OWNER:allAuthenticatedUsers"]
 }
 
+resource "google_storage_default_object_access_control" "public_rule" {
+  bucket = google_storage_bucket.website_bucket.name
+  role   = "READER"
+  entity = "allUsers"
+}
+
+resource "google_storage_bucket_access_control" "public_rule" {
+  bucket = google_storage_bucket.website_bucket.name
+  role   = "READER"
+  entity = "allUsers"
+}
