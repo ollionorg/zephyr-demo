@@ -1,5 +1,4 @@
 provider "google" {
-  project = var.GOOGLE_PROJECT
 }
 
 
@@ -13,10 +12,6 @@ resource "random_string" "random" {
   length    = 8
   special   = false
   min_lower = 8
-}
-
-variable "GOOGLE_PROJECT" {
-  default = null
 }
 
 resource "google_storage_bucket" "website_bucket" {
@@ -48,5 +43,3 @@ resource "google_storage_default_object_access_control" "public_rule" {
   role   = "READER"
   entity = "allUsers"
 }
-
-
