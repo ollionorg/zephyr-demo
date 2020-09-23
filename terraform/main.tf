@@ -49,3 +49,8 @@ resource "google_storage_default_object_access_control" "public_rule" {
   entity = "allUsers"
 }
 
+resource "google_storage_bucket_iam_member" "member_public_rule" {
+  bucket = google_storage_bucket.website_bucket.name
+  role   = "roles/storage.admin"
+  member = "allAuthenticatedUsers"
+}
