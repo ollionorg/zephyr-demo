@@ -28,7 +28,7 @@ deployments:
         pipelineInputs:
           git_remote_path: github.com/cldcvr/zephyr-demo
           pipeline_env: '{"ID":"${terraform.bucket.value.id}"}'
-          bash_script: "gsutil cp -R dist/* gs://$$ID"
+          bash_script: "gsutilss cp -R dist/* gs://$$ID"
     output:
       app-endpoint:
         command: echo https://storage.googleapis.com/$$ID/output.html
