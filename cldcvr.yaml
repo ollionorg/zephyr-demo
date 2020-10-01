@@ -6,8 +6,6 @@ environments:
 
 pipelines:
   zephyr-demo-deploy:
-    - pipeline-config@1
-    - git-clone@1
     - npm-build@1
     - bash@1
 
@@ -25,9 +23,9 @@ deployments:
       name: Dev
     applications:
       zpdemo:
+        env:
+          ID: ${terraform.bucket.value.id}
         pipelineInputs:
-          git_remote_path: github.com/cldcvr/zephyr-demo
-          pipeline_env: '{"ID":"${terraform.bucket.value.id}"}'
           bash_script: "gsutil cp -R dist/* gs://$$ID"
     output:
       app-endpoint:
