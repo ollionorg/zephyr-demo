@@ -1,6 +1,5 @@
 provider "google" {
   project = var.GOOGLE_PROJECT
-  region = "us-east1"
 }
 
 
