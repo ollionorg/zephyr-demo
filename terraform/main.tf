@@ -47,6 +47,8 @@ resource "google_storage_default_object_access_control" "public_rule" {
   bucket = google_storage_bucket.website_bucket.name
   role   = "READER"
   entity = "allUsers"
+
+  depends_on = [google_storage_bucket_acl.website_bucket_acl]
 }
 
 
