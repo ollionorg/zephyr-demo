@@ -17,7 +17,7 @@ resource "random_string" "random" {
 }
 
 variable "GOOGLE_PROJECT" {
-  default = "devsecops-sandbox-291809"
+  default = null
 }
 
 resource "google_storage_bucket" "website_bucket" {
