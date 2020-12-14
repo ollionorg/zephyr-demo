@@ -1,6 +1,6 @@
 # ZEPHYR-DEMO
 
-[![cldcvr](https://a.cldcvr.com/product/dtc.png)](https://beta.cldcvr.app?url=https://github.com/cldcvr/zephyr-demo)
+[![cldcvr](https://a.cldcvr.com/product/dtc.png)](https://beta.cldcvr.dev?url=https://github.com/cldcvr/zephyr-demo)
 > A Vue.js project
 
 ## Build Setup
