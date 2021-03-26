@@ -20,7 +20,7 @@ deployments:
     endpoints:
       - zpdemo
     environment:
-      name: Dev
+      name: Development
     applications:
       zpdemo:
         env:
