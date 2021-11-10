@@ -21,6 +21,7 @@ variable "GOOGLE_PROJECT" {
 
 resource "google_storage_bucket" "website_bucket" {
   name          = "zephyr-demo-${random_string.random.result}"
+  location      = var.BUCKET_LOCATION
   force_destroy = true
 
   website {
@@ -51,4 +52,8 @@ resource "google_storage_default_object_access_control" "public_rule" {
   depends_on = [google_storage_bucket_acl.website_bucket_acl]
 }
 
-
+variable "BUCKET_LOCATION" {
+description = "The geographic location of the storage bucket (US, EU, ASIA)."
+type        = string
+default     = "US"
+}
