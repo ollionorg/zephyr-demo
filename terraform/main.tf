@@ -28,7 +28,11 @@ resource "google_storage_bucket" "website_bucket" {
     main_page_suffix = "output.html"
     not_found_page   = "output.html"
   }
-
+  
+  labels   = {
+      #Added to prevent security alerts
+      allow_public_bucket_acl  = "true"
+  }
   lifecycle_rule {
     condition {
       age = "1"
